@@ -1,0 +1,139 @@
+ .signup-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .signup-container h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+   .signup-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+   .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Message d'erreur */
+  .error-message {
+    color: #ff4d4d;
+    font-size: 0.875em;
+    margin-top: 5px;
+  }
+  
+   
+   /* Style pour le conteneur de l'avatar */
+  .avatar-preview {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  
+  /* Style pour l'image de prévisualisation de l'avatar */
+  .avatar-preview img {
+    width: 100px; /* Vous pouvez ajuster la taille selon vos besoins */
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #007bff; /* Bordure colorée */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition pour les effets au survol */
+  }
+  
+  /* Effet au survol sur l'image de prévisualisation */
+  .avatar-preview img:hover {
+    transform: scale(1.05); /* Légère augmentation de la taille au survol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombre plus intense au survol */
+  }
+  
+  /* Style pour le bouton de sélection de fichier */
+  #avatar {
+    display: none; /* Masquer le champ de fichier par défaut */
+  }
+  
+  /* Style pour le label du champ de fichier */
+  label[for="avatar"] {
+    display: inline-block;
+    background-color: #007bff; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    padding: 10px 15px; /* Espacement intérieur */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur de pointeur pour indiquer que c'est cliquable */
+    transition: background-color 0.3s ease; /* Transition pour l'effet au survol */
+  }
+  
+  /* Effet au survol sur le label du champ de fichier */
+  label[for="avatar"]:hover {
+    background-color: #0056b3; /* Couleur de fond au survol */
+  }
+  
+  
+  /* Boutons */
+  button {
+    background: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  button[type="button"] {
+    background: #6c757d;
+    margin-left: 10px;
+  }
+  
+  button[type="button"]:hover {
+    background: #5a6268;
+  }
+  
+   input::placeholder,
+  textarea::placeholder {
+    color: #888;
+    font-style: italic;
+  }
+  

@@ -1,0 +1,135 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #e0e0e0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.minimal-card {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+  color: #333;
+}
+
+.minimal-card h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.form-control {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 15px;
+  color: #333;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: #aaa;
+}
+
+.form-control:focus {
+  border-color: #333;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  background: #0056b3;
+}
+
+.btn-register {
+  width: 100%;
+  padding: 12px;
+  background: #28a745;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-register:hover {
+  background: #218838;
+}
+
+.error-message {
+  color: #e74c3c;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.forgot-password {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #0056b3;
+}
+
+.btn-forgot-password {
+  background-color: transparent;
+  border: none;
+  color: #007bff;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.btn-forgot-password:hover {
+  color: #0056b3;
+}
+
+.btn-forgot-password:focus {
+  outline: none;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 51%;
+  left: 760px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 2;
+}
+
+.toggle-password i {
+  font-size: 18px;
+  color: #333;
+}
