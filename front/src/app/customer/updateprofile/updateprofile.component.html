@@ -1,0 +1,30 @@
+<div class="update-form-container">
+    <form (ngSubmit)="updateUser()" class="update-form">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input id="username" [(ngModel)]="username" name="username" required class="form-input" />
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" [(ngModel)]="email" name="email" required class="form-input" />
+      </div>
+  
+      <div class="form-group profile-picture">
+        <label for="picture">Profile Picture:</label>
+        <div class="picture-wrapper">
+          <!-- Image actuelle du profil en Base64 -->
+          <img [src]="currentPictureBase64" alt="Profile Picture" class="profile-img" />
+  
+          <!-- Icône de mise à jour pour changer l'image -->
+          <label class="update-icon">
+            <input id="picture" type="file" (change)="onFileChange($event)" hidden />
+            <i class="fa fa-camera"></i>
+          </label>
+        </div>
+      </div>
+  
+      <button type="submit" class="update-btn">Update</button>
+    </form>
+  </div>
+  

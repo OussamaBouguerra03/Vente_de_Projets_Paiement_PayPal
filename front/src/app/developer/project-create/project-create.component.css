@@ -1,0 +1,169 @@
+/* Style global pour le conteneur du formulaire */
+.container {
+    max-width: 600px;
+    margin: 50px auto; /* Centrer horizontalement le formulaire */
+    padding: 20px;
+    background-color: #f8f9fa; /* Couleur de fond légère */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre pour l'effet de profondeur */
+  }
+  
+  /* Style pour le titre du formulaire */
+  h2 {
+    text-align: center; /* Centrer le titre */
+    color: #333; /* Couleur du texte */
+    margin-bottom: 20px; /* Espacement en bas */
+  }
+  
+  /* Style des étiquettes (labels) */
+  label {
+    display: block; /* Affichage en bloc pour les aligner */
+    font-weight: bold;
+    margin-bottom: 5px; /* Espacement avec les champs */
+    color: #555;
+  }
+  
+  /* Style pour les champs de saisie */
+  input[type="text"],
+  input[type="number"],
+  textarea,
+  input[type="file"] {
+    width: 100%; /* Largeur pleine pour tous les champs */
+    padding: 10px; /* Espacement interne pour une meilleure lisibilité */
+    margin-bottom: 15px; /* Espacement en bas de chaque champ */
+    border: 1px solid #ccc; /* Bordure grise */
+    border-radius: 5px; /* Coins arrondis */
+    font-size: 16px;
+    box-sizing: border-box; /* Gérer le remplissage et la taille correctement */
+    transition: border-color 0.3s; /* Effet de transition pour la bordure */
+  }
+  
+  /* Changer la bordure lors du focus */
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  textarea:focus,
+  input[type="file"]:focus {
+    border-color: #007bff; /* Bordure bleue lors du focus */
+    outline: none; /* Supprimer l'effet de contour par défaut */
+  }
+  
+  /* Style pour le bouton de soumission */
+  button[type="submit"] {
+    width: 100%; /* Le bouton prend toute la largeur */
+    padding: 10px;
+    background-color: #007bff; /* Couleur bleue pour le bouton */
+    color: #fff; /* Couleur du texte blanc */
+    border: none;
+    border-radius: 5px; /* Coins arrondis */
+    font-size: 18px;
+    cursor: pointer; /* Curseur de la souris change en pointer */
+    transition: background-color 0.3s; /* Effet de transition sur la couleur de fond */
+  }
+  
+  /* Changer la couleur de fond du bouton lors du survol */
+  button[type="submit"]:hover {
+    background-color: #0056b3; /* Couleur plus foncée lors du hover */
+  }
+  
+  /* Désactiver le bouton quand il est désactivé */
+  button[disabled] {
+    background-color: #ccc; /* Couleur grise lorsque le bouton est désactivé */
+    cursor: not-allowed; /* Changer le curseur en non autorisé */
+  }
+  
+  /* Style pour les messages d'erreur ou de validation (ajouter des classes personnalisées pour cela) */
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+  }
+  /* Style pour le conteneur de formulaire */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style général des champs de formulaire */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Style des labels */
+  .form-group label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  /* Style des champs de texte */
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Style spécifique pour les <select> */
+  .form-group select.form-control {
+    appearance: none; /* Supprimer le style par défaut du navigateur */
+    background: #ffffff url('data:image/svg+xml;charset=utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path d="M0 3.5L5 8.5L10 3.5H0Z" fill="%23222"/></svg>') no-repeat right 10px center;
+    background-size: 10px 10px;
+    padding-right: 40px; /* Pour laisser de l'espace pour la flèche */
+  }
+  
+  /* Style spécifique pour les champs de téléchargement de fichier */
+  .form-group input[type="file"] {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .form-group input[type="file"]::before {
+    content: 'Upload Video';
+    display: block;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 30px;
+    font-size: 16px;
+    pointer-events: none; /* Empêcher l'interaction directe */
+  }
+  
+  .form-group input[type="file"]:hover::before {
+    background-color: #0056b3;
+  }
+  
+  .form-group input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden; /* Masquer le bouton par défaut du navigateur */
+  }
+  
+  .form-group input[type="file"] {
+    display: block;
+    width: 100%;
+  }
+  

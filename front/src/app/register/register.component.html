@@ -1,0 +1,63 @@
+<div class="signup-container">
+  <h2>Sign Up</h2>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
+
+    <!-- Username -->
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input id="username" formControlName="username" type="text" placeholder="Username" />
+      <div *ngIf="username && username.invalid && username.touched" class="error-message">
+        Username is required
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" type="email" placeholder="Email" />
+      <div *ngIf="email && email.invalid && email.touched" class="error-message">
+        <div *ngIf="email.errors?.['required']">Email is required</div>
+        <div *ngIf="email.errors?.['email']">Enter a valid email</div>
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input id="password" formControlName="password" type="password" placeholder="Password" />
+      <div *ngIf="password && password.invalid && password.touched" class="error-message">
+        <div *ngIf="password.errors?.['required']">Password is required</div>
+        <div *ngIf="password.errors?.['minlength']">Password must be at least 8 characters</div>
+        <div *ngIf="password.errors?.['pattern']">Password must include at least one letter and one number</div>
+      </div>
+    </div>
+
+    <!-- Role -->
+    <div class="form-group">
+      <label for="role">Role:</label>
+      <select id="role" formControlName="role">
+        <option value="" disabled>Select Role</option>
+        <option value="CUSTOMER">Customer</option>
+        <option value="DEVELOPPER">Developer</option>
+      </select>
+      <div *ngIf="signupForm.get('role')?.invalid && signupForm.get('role')?.touched" class="error-message">
+        Role is required
+      </div>
+    </div>
+
+    <!-- Avatar -->
+    <div class="form-group">
+      <label for="avatar">Avatar:</label>
+      <input id="avatar" type="file" (change)="onFileChange($event)" />
+      <div *ngIf="avatarPreviewUrl" class="avatar-preview">
+        <img [src]="avatarPreviewUrl" alt="Avatar Preview" />
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="form-group">
+      <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+      <button type="button" (click)="goToSignin()">Cancel</button>
+    </div>
+  </form>
+</div>

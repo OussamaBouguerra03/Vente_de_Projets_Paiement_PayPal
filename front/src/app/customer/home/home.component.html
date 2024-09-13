@@ -1,0 +1,25 @@
+<div class="container">
+
+    <div class="projects-list">
+        <div *ngFor="let project of projects" class="project-card">
+            <div class="project-header">
+                <div class="project-image">
+                    <img [src]="developerImages[project.userId]" alt="{{ project.name }}" *ngIf="developerImages[project.userId]">
+                </div>
+                <h2 class="project-title">{{ project.name }}</h2>
+            </div>
+            <div class="project-info">
+                <div class="video-container" *ngIf="videos[project.id]">
+                    <video controls>
+                        <source [src]="videos[project.id]" type="video/mp4">
+                        Votre navigateur ne supporte pas la balise vidéo.
+                    </video>
+                </div>
+                <p class="category">Catégorie: {{ project.category }}</p>
+                <p class="price">Prix: {{ project.price | currency }}</p>
+                <p class="description">{{ project.description }}</p>
+                <button (click)="purchaseProject(project.id, project.price)">Acheter</button>
+            </div>
+        </div>
+    </div>
+</div>

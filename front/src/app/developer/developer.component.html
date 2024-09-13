@@ -1,0 +1,21 @@
+<router-outlet></router-outlet>
+
+<nav class="sidebar">
+  <div class="profile-info">
+      <img [src]="profilePictureUrl" alt="Profile Picture" class="profile-picture" />
+      <div class="profile-details">
+          <p class="profile-name">{{ user?.username }}</p>
+      </div>
+  </div>
+  <ul>
+      <li><a routerLink="/developer/home" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/developer/update-profile" routerLinkActive="active">Profile</a></li>
+      <li><a routerLink="list" routerLinkActive="active">Project</a></li>
+      <li><a routerLink="/developer/sales" routerLinkActive="active">Sales Revenue</a></li>
+
+  </ul>
+  <button class="logout-button" (click)="logout()">Logout</button>
+</nav>
+
+   
+  

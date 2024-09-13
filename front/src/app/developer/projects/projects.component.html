@@ -1,0 +1,40 @@
+<div class="projects-container">
+  <div class="title">Projects</div>
+  <button class="btn-primary" (click)="navigateToCreateProject()">Create New Project</button>
+  <ul class="projects-list">
+    <li *ngFor="let project of projects" class="project-card">
+      <div class="project-header">
+        <h3>{{ project.name }}</h3>
+      </div>
+      <strong>Description:</strong>
+      <p class="project-description">
+        {{ project.description }}</p>
+      <p class="project-price">${{ project.price }}</p>
+        <!-- Display Technologies -->
+       <!-- Display Technologies -->
+<!-- Display Technologies -->
+<div class="project-technologies">
+  <strong>Technologies Used:</strong>
+  <p>{{ project.technologies }}</p>
+</div>
+
+
+  
+        <!-- Display Category -->
+        <div class="project-category">
+          <strong>Category:</strong>
+          <p>{{ project.category }}</p>
+        </div>
+      <div *ngIf="project.videoUrl" class="project-video">
+        <video width="320" height="240" controls>
+          <source [attr.src]="project.videoUrl" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="project-actions">
+        <button class="btn-warning" (click)="updateProject(project.id)">Edit</button>
+        <button class="btn-danger" (click)="deleteProject(project.id)">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,19 @@
+<div class="purchase-container">
+    <div *ngIf="purchases.length > 0">
+      <h3 class="purchase-header">My Purchases</h3>
+      <ul class="purchase-list">
+        <li *ngFor="let purchase of purchases" class="purchase-item">
+          <h4>Purchase Details</h4>
+          <div class="purchase-details">
+             <span><strong>Purchase Date:</strong> {{ purchase.purchaseDate | date }}</span>
+            <span><strong>Amount:</strong> {{ purchase.amount | currency }}</span>
+            <span><strong>Payment ID:</strong> {{ purchase.paymentId }}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="purchases.length === 0" class="no-purchases">
+      <p>No purchases found.</p>
+    </div>
+  </div>
+  

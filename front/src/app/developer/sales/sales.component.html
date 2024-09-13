@@ -1,0 +1,21 @@
+<div class="revenue-container">
+    <h2>Revenues from Your Projects</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Amount</th>
+          <th>Purchase Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let purchase of purchases">
+             <td>{{ purchase.amount | currency }}</td>
+          <td>{{ purchase.purchaseDate | date }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total-revenue">
+      <h3>Total Revenue: {{ totalRevenue | currency }}</h3>
+    </div>
+  </div>
+  

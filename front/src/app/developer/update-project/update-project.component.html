@@ -1,0 +1,19 @@
+<div class="update-project-container">
+    <h2>Update Project</h2>
+    <form (ngSubmit)="updateProject()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" [(ngModel)]="project.name" name="name" required class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" [(ngModel)]="project.description" name="description" required class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="price">Price</label>
+        <input id="price" type="number" [(ngModel)]="project.price" name="price" required class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary">Update</button>
+      <button type="button" (click)="router.navigate(['/projects'])" class="btn btn-secondary">Cancel</button>
+    </form>
+  </div>
