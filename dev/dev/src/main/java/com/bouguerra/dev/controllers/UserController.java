@@ -73,7 +73,7 @@ JwtUtil jwtUtil;
         if (optionalImage.isPresent()) {
             byte[] image = optionalImage.get();
             HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.IMAGE_JPEG); // ou le type approprié
+            headers.setContentType(MediaType.IMAGE_JPEG); 
             return new ResponseEntity<>(image, headers, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -97,13 +97,10 @@ JwtUtil jwtUtil;
     
             Long userId = user.getId();
             
-            // Update user details
             UserDTO updatedUser = userService.updateUser(userId, username, email, picture);
     
-            // Generate new token
             String newToken = jwtUtil.refreshToken(authentication.getCredentials().toString());
     
-            // Create response with token
             return ResponseEntity.ok(Map.of("user", updatedUser, "token", newToken));
         } catch (UserNotFoundException | UsernameAlreadyExistsException | EmailAlreadyExistsException | AvatarProcessingException e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("message", e.getMessage()));

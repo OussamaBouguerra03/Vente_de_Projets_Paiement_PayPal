@@ -21,13 +21,13 @@ public class Purchase {
     private Long id;
     
     @ManyToOne
-    private User customer; // L'utilisateur qui a acheté le projet
+    private User customer;  
 
     @ManyToOne
-    private Project project; // Le projet acheté
+    private Project project; 
 
     private LocalDateTime purchaseDate;
     private Double amount;
-    private String paymentId; // ID de paiement PayPal
+    private String paymentId;  
 
 }

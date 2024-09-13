@@ -8,7 +8,6 @@ public class PasswordResetDTO {
 
     @NotBlank(message = "La confirmation du mot de passe ne peut pas être nulle ou vide.")
     private String confirmPassword;
-    // Getters et Setters
     public String getPassword() {
         return password;
     }

@@ -26,7 +26,7 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserRepository userRepository; // Votre repository
+    private UserRepository userRepository;  
 
     @Override
     public Optional<byte[]> getProfilePicture(Long userId) {
@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
     public byte[] getUserImage(Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
-        return user.getPicture(); // Supposons que `User` a un attribut `image` pour stocker l'image
+        return user.getPicture();  
     }
  
        @Override
@@ -70,7 +70,7 @@ public class UserServiceImpl implements UserService {
            User user = userRepository.findById(userId)
                .orElseThrow(() -> new UserNotFoundException("User not found"));
        
-           // Vérification si le nouveau nom d'utilisateur ou email est déjà utilisé
+ 
            if (userRepository.existsByUsername(newUsername) && !user.getUsername().equals(newUsername)) {
                throw new UsernameAlreadyExistsException("Username is already in use");
            }
@@ -78,11 +78,11 @@ public class UserServiceImpl implements UserService {
                throw new EmailAlreadyExistsException("Email is already in use");
            }
        
-           // Mise à jour des informations de l'utilisateur
+ 
            user.setUsername(newUsername);
            user.setEmail(newEmail);
        
-           // Mise à jour de la photo de profil si elle est présente
+ 
            if (newPicture != null && !newPicture.isEmpty()) {
                try (InputStream inputStream = newPicture.getInputStream()) {
                    user.setPicture(convertInputStreamToByteArray(inputStream));

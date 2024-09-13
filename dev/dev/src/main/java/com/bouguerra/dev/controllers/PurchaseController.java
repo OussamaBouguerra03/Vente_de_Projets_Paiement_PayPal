@@ -43,23 +43,18 @@ public class PurchaseController {
     }
     @GetMapping("/user")
     public ResponseEntity<List<PurchaseDTO>> getUserPurchases(Authentication authentication) {
-        // Log de début
         logger.info("Request to get purchases for user started.");
     
         try {
-            // Vérification de l'utilisateur authentifié
             String username = authentication.getName(); // Obtenir le nom d'utilisateur
-            logger.info("Authenticated user: {}", username); // Affiche l'utilisateur connecté
+            logger.info("Authenticated user: {}", username);
     
-            // Récupération de l'utilisateur par son nom d'utilisateur
-            User user = userService.findByUsername(username); // Suppose que vous avez un UserService
+            User user = userService.findByUsername(username); 
     
-            // Vérification de l'existence de l'utilisateur
             if (user == null) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.emptyList());
             }
     
-            // Récupération des achats de l'utilisateur
             List<PurchaseDTO> purchases = purchaseService.getUserPurchases(user.getId());
             logger.info("Purchases retrieved: {}", purchases); // Affiche les achats récupérés
     
@@ -67,7 +62,7 @@ public class PurchaseController {
         } catch (Exception e) {
             logger.error("Error retrieving purchases: ", e);
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                                 .body(Collections.emptyList()); // En cas d'erreur, renvoie une liste vide
+                                 .body(Collections.emptyList()); 
         }
     }
     

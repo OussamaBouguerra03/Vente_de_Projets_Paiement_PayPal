@@ -15,12 +15,12 @@ import java.util.Optional;
 
 public interface AuthService {
  User registerUser(UserRegisterDTO registerDTO, MultipartFile avatarFile);
-    Map<String, Object> loginUser(UserLoginDTO userLoginDTO);
-    User findByUsername(String username);
-     void sendPasswordResetEmail(PasswordResetRequestDTO requestDTO);
-    void resetPassword(String token, PasswordResetDTO resetDTO);
-	public void sendEmail(Mail mail);
-     String getUsernameById(Long id);
-     Optional<User> findByEmail(String email);
-    Optional<User> findById(Long id);
+ Map<String, Object> loginUser(UserLoginDTO userLoginDTO);
+ User findByUsername(String username);
+ void sendPasswordResetEmail(PasswordResetRequestDTO requestDTO);
+ void resetPassword(String token, PasswordResetDTO resetDTO);
+ public void sendEmail(Mail mail);
+ String getUsernameById(Long id);
+ Optional<User> findByEmail(String email);
+ Optional<User> findById(Long id);
  }

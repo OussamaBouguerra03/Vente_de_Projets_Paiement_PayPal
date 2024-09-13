@@ -7,7 +7,6 @@ public class PasswordResetTokenDTO {
     private String userEmail;
     private LocalDateTime expiryDate;
 
-    // Getters et setters
     public String getToken() {
         return token;
     }

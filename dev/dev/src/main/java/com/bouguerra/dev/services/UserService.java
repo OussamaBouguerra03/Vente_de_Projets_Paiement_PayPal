@@ -10,8 +10,7 @@ import com.bouguerra.dev.models.User;
  
 public interface UserService {
 
-        UserDTO getCurrentUser();
-
+     UserDTO getCurrentUser();
      Optional<byte[]> getProfilePicture(Long userId);
      byte[] getUserImage(Long userId);
      UserDTO updateUser(Long userId, String newUsername, String newEmail, MultipartFile newPicture) ;

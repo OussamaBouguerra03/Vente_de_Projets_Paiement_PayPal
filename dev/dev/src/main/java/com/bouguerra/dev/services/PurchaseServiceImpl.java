@@ -31,8 +31,7 @@ public class PurchaseServiceImpl implements PurchaseService {
     private ProjectRepository projectRepository;
 
     @Autowired
-    private PurchaseRepository purchaseRepository; // Assure-toi d'avoir un repository pour gérer les achats
-
+    private PurchaseRepository purchaseRepository;  
 
     @Transactional
     @Override

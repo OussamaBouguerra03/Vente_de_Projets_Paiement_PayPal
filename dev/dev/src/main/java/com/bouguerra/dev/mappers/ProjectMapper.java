@@ -6,7 +6,7 @@ import com.bouguerra.dev.models.User;
 
 public class ProjectMapper {
 
-    // Convertir Project en ProjectDTO
+ 
     public static ProjectDTO toDTO(Project project) {
         return new ProjectDTO(
                 project.getId(),
@@ -20,7 +20,7 @@ public class ProjectMapper {
         );
     }
 
-    // Convertir ProjectDTO en Project
+ 
     public static Project toEntity(ProjectDTO projectDTO, User user) {
         return new Project(
                 projectDTO.getId(),

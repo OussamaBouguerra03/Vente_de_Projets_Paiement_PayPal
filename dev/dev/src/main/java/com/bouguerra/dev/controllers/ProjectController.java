@@ -25,7 +25,7 @@ public class ProjectController {
     public ResponseEntity<?> createProject(
             @RequestPart(value = "project", required = false) String projectJson,
             @RequestPart("video") MultipartFile videoFile,
-            HttpServletRequest request) { // Ajoutez HttpServletRequest comme paramètre
+            HttpServletRequest request) { 
         System.out.println("Content Type: " + request.getContentType());
         System.out.println("Received project JSON: " + projectJson);
         System.out.println("Received video file: " + (videoFile != null ? videoFile.getOriginalFilename() : "None"));
@@ -38,11 +38,9 @@ public class ProjectController {
         }
     
         try {
-            // Convertir JSON en ProjectDTO
             ObjectMapper objectMapper = new ObjectMapper();
             ProjectDTO projectDTO = objectMapper.readValue(projectJson, ProjectDTO.class);
     
-            // Appel du service pour ajouter un nouveau projet
             ProjectDTO createdProject = projectService.createProject(projectDTO, videoFile);
             return new ResponseEntity<>(createdProject, HttpStatus.CREATED);
         } catch (IOException e) {

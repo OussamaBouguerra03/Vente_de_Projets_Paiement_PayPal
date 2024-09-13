@@ -31,7 +31,7 @@ public class ProjectServiceImpl implements ProjectService {
  
     public ProjectDTO createProject(ProjectDTO projectDTO, MultipartFile videoFile) throws Exception {
         try {
-            // Logs supplémentaires pour le débogage
+ 
             System.out.println("Début de la création du projet avec les détails : " + projectDTO);
     
             User user = userRepository.findById(projectDTO.getUserId())
@@ -121,7 +121,7 @@ public class ProjectServiceImpl implements ProjectService {
       @Override
       public String getProjectNameById(Long id) {
         Project project = projectRepository.findById(id).orElse(null);
-        return (project != null) ? project.getName() : "Unknown"; // Assurez-vous que cela renvoie une chaîne
+        return (project != null) ? project.getName() : "Unknown";  
     }
     
 

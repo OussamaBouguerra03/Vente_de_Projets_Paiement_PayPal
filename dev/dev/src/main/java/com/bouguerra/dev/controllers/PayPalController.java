@@ -76,21 +76,17 @@ public ResponseEntity<Void> success(
     @RequestParam("userId") Long userId) {
     
     try {
-        // Vérifier si le paiement a déjà été traité
         if (purchaseService.isPaymentAlreadyProcessed(paymentId)) {
             return ResponseEntity.status(HttpStatus.CONFLICT)
                     .location(URI.create("http://localhost:4200/customer/home?status=conflict&message=PaymentAlreadyProcessed"))
                     .build();
         }
 
-        // Exécuter le paiement
         Payment payment = payPalService.executePayment(paymentId, payerId);
         Double amount = Double.valueOf(payment.getTransactions().get(0).getAmount().getTotal());
 
-        // Traiter l'achat après paiement réussi
         purchaseService.purchaseProject(userId, projectId, amount, paymentId);
 
-        // Redirection vers la page frontend avec message de succès
         return ResponseEntity.status(HttpStatus.FOUND)
                 .location(URI.create("http://localhost:4200/customer/home?status=success&message=PaymentSuccessful"))
                 .build();
