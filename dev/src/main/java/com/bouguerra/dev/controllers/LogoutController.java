@@ -13,7 +13,6 @@ public class LogoutController {
 
     @PostMapping("/logout")
     public ResponseEntity<?> logout(HttpServletRequest request) {
-        // Token invalidation is handled client-side
-        return ResponseEntity.ok("Logged out successfully");
+         return ResponseEntity.ok("Logged out successfully");
     }
 }
