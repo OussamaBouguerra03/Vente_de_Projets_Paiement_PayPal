@@ -104,15 +104,12 @@ public Map<String, Object> loginUser(UserLoginDTO userLoginDTO) {
         throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid username or password");
     }
 
-    // Generate JWT token including role
-    String token = jwtUtil.generateToken(user.getUsername(), user.getRole());
+     String token = jwtUtil.generateToken(user.getUsername(), user.getRole());
 
-    // Prepare response
-    Map<String, Object> response = new HashMap<>();
+     Map<String, Object> response = new HashMap<>();
     response.put("token", token);
     response.put("role", user.getRole().name());
-    response.put("user", Map.of("id", user.getId(), "username", user.getUsername())); // Ajout de l'ID et du nom d'utilisateur
-
+    response.put("user", Map.of("id", user.getId(), "username", user.getUsername()));  
     return response;
 }
 
@@ -133,32 +130,26 @@ public User findByUsername(String username) {
     @Override
     public void sendPasswordResetEmail(PasswordResetRequestDTO requestDTO) {
      
-        // Vérifier si l'utilisateur existe
-        Optional<User> optionalUser = userRepository.findByEmail(requestDTO.getEmail());
+         Optional<User> optionalUser = userRepository.findByEmail(requestDTO.getEmail());
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
     
-            // Supprimer tout jeton de réinitialisation existant pour cet utilisateur
-            Optional<PasswordResetToken> existingToken = tokenRepository.findByUserId(user.getId());
+             Optional<PasswordResetToken> existingToken = tokenRepository.findByUserId(user.getId());
             if (existingToken.isPresent()) {
                 tokenRepository.delete(existingToken.get());
              }
     
-            // Générer un nouveau jeton de réinitialisation
-            String token = UUID.randomUUID().toString();
+             String token = UUID.randomUUID().toString();
             PasswordResetTokenDTO tokenDTO = new PasswordResetTokenDTO();
             tokenDTO.setToken(token);
-            tokenDTO.setExpiryDate(LocalDateTime.now().plusHours(1)); // Expire dans 1 heure
+            tokenDTO.setExpiryDate(LocalDateTime.now().plusHours(1)); 
     
-            // Mapper et sauvegarder le jeton
-            PasswordResetToken resetToken = tokenMapper.toEntity(tokenDTO, user);
+             PasswordResetToken resetToken = tokenMapper.toEntity(tokenDTO, user);
             tokenRepository.save(resetToken);
      
-            // Créer l'URL de réinitialisation du mot de passe
-            String resetUrl = "http://localhost:4200/new-password?token=" + token;
+             String resetUrl = "http://localhost:4200/new-password?token=" + token;
     
-            // Préparer et envoyer l'email de réinitialisation
-            SimpleMailMessage message = new SimpleMailMessage();
+             SimpleMailMessage message = new SimpleMailMessage();
             message.setTo(requestDTO.getEmail());
             message.setSubject("Réinitialisation du mot de passe");
             message.setText("Veuillez suivre ce lien pour réinitialiser votre mot de passe : " + resetUrl);
