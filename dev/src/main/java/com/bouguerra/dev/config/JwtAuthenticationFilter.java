@@ -30,11 +30,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         String authHeader = request.getHeader("Authorization");
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            String token = authHeader.substring(7); // Retirer le préfixe "Bearer "
+            String token = authHeader.substring(7);  
 
             if (jwtUtil.isTokenExpired(token)) {
-                // Token est expiré, ne pas continuer l'authentification
-                filterChain.doFilter(request, response);
+                 filterChain.doFilter(request, response);
                 return;
             }
 
@@ -45,8 +44,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 UserDetails userDetails = customUserDetailsService.loadUserByUsername(username);
 
                 if (userDetails != null) {
-                    // Crée une autorité à partir du rôle extrait
-                    SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + role.name());
+                     SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + role.name());
                     Authentication authentication = new UsernamePasswordAuthenticationToken(
                             userDetails, 
                             null, 
