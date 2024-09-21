@@ -15,15 +15,14 @@ import java.util.Date;
 public class JwtUtil {
 
     @Value("${jwt.secret}")
-    private String secretKey; // Clé secrète lue depuis la configuration
+    private String secretKey;  
 
-    // Ajoutez un log pour vérifier la clé secrète
-    private void logSecretKey() {
+     private void logSecretKey() {
         System.out.println("JWT Secret Key: " + secretKey);
     }
 
     public String generateToken(String username, Role role) {
-        logSecretKey(); // Assurez-vous que la clé secrète est correcte
+        logSecretKey();  
         SecretKey key = Keys.hmacShaKeyFor(secretKey.getBytes());
         return Jwts.builder()
                 .setSubject(username)
@@ -56,15 +55,13 @@ public class JwtUtil {
         return Role.valueOf(role);
     }
     public String refreshToken(String token) {
-        // Extraire les informations du token existant
-        Claims claims = Jwts.parserBuilder()
+         Claims claims = Jwts.parserBuilder()
             .setSigningKey(Keys.hmacShaKeyFor(secretKey.getBytes()))
             .build()
             .parseClaimsJws(token)
             .getBody();
     
-        // Créer un nouveau token avec les mêmes informations
-        return Jwts.builder()
+         return Jwts.builder()
             .setClaims(claims)
             .setIssuedAt(new Date())
             .setExpiration(new Date(System.currentTimeMillis() + 3600000)) // 1 heure
