@@ -6,8 +6,7 @@ import com.bouguerra.dev.models.User;
 
 public class ProjectMapper {
 
-    // Convertir Project en ProjectDTO
-    public static ProjectDTO toDTO(Project project) {
+     public static ProjectDTO toDTO(Project project) {
         return new ProjectDTO(
                 project.getId(),
                 project.getName(),
@@ -15,8 +14,8 @@ public class ProjectMapper {
                 project.getPrice(),
                 project.getVideo(),
                 project.getUser().getId(),
-                project.getTechnologies(), // Ajouter les technologies
-                project.getCategory() // Ajouter la catégorie
+                project.getTechnologies(),  
+                project.getCategory() 
         );
     }
 
@@ -27,8 +26,8 @@ public class ProjectMapper {
                 projectDTO.getName(),
                 projectDTO.getDescription(),
                 projectDTO.getPrice(),
-                projectDTO.getTechnologies(), // Ajouter les technologies
-                projectDTO.getCategory(), // Ajouter la catégorie
+                projectDTO.getTechnologies(),  
+                projectDTO.getCategory(),  
                 projectDTO.getVideo(),
                 user
         );
