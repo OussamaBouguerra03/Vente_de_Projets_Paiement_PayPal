@@ -121,7 +121,7 @@ public class ProjectServiceImpl implements ProjectService {
       @Override
       public String getProjectNameById(Long id) {
         Project project = projectRepository.findById(id).orElse(null);
-        return (project != null) ? project.getName() : "Unknown"; // Assurez-vous que cela renvoie une chaîne
+        return (project != null) ? project.getName() : "Unknown";  
     }
     
 
