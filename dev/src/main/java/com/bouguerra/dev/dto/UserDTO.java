@@ -18,19 +18,17 @@ public class UserDTO {
     private String email;
     private byte[] picture;
     private Role role;
-    private String errorMessage; // Pour gérer les messages d'erreur
-    private String token; // Ajoutez ce champ pour le token
+    private String errorMessage;  
+    private String token;  
 
-    // Constructeur pour User et token
-    public UserDTO(User user, String token) {
+     public UserDTO(User user, String token) {
         this.id = user.getId();
         this.username = user.getUsername();
         this.email = user.getEmail();
         this.token = token;
     }
 
-    // Constructeur pour les messages d'erreur
-    public UserDTO(String errorMessage) {
+     public UserDTO(String errorMessage) {
         this.errorMessage = errorMessage;
     }
 
