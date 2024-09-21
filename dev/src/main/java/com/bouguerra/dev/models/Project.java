@@ -23,7 +23,7 @@ public class Project {
     private String description;
     private Double price;
     private String technologies;
-    private String category; // Category of the project
+    private String category;  
     
     @Lob
     @Column(name = "video", columnDefinition = "LONGBLOB")
