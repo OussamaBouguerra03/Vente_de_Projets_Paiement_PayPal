@@ -6,8 +6,7 @@ import java.io.IOException;
 @Component
 public class MultipartFileMapper {
 
-    // Method to convert MultipartFile to byte[]
-    public static byte[] convertMultipartFileToByteArray(MultipartFile file) {
+     public static byte[] convertMultipartFileToByteArray(MultipartFile file) {
         try {
             return file != null ? file.getBytes() : null;
         } catch (IOException e) {
