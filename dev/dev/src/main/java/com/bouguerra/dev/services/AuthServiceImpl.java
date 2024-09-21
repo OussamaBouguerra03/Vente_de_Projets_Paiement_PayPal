@@ -111,7 +111,7 @@ public Map<String, Object> loginUser(UserLoginDTO userLoginDTO) {
     Map<String, Object> response = new HashMap<>();
     response.put("token", token);
     response.put("role", user.getRole().name());
-    response.put("user", Map.of("id", user.getId(), "username", user.getUsername())); // Ajout de l'ID et du nom d'utilisateur
+    response.put("user", Map.of("id", user.getId(), "username", user.getUsername()));  
 
     return response;
 }
@@ -148,7 +148,7 @@ public User findByUsername(String username) {
             String token = UUID.randomUUID().toString();
             PasswordResetTokenDTO tokenDTO = new PasswordResetTokenDTO();
             tokenDTO.setToken(token);
-            tokenDTO.setExpiryDate(LocalDateTime.now().plusHours(1)); // Expire dans 1 heure
+            tokenDTO.setExpiryDate(LocalDateTime.now().plusHours(1)); 
     
  
             PasswordResetToken resetToken = tokenMapper.toEntity(tokenDTO, user);
