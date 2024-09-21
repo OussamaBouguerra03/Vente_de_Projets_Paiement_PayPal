@@ -12,9 +12,9 @@ public class ProjectDTO {
     private String name;
     private String description;
     private Double price;
-    private byte[] video; // Assurez-vous de gérer correctement les vidéos pour éviter les grandes charges.
-    private Long userId;  // Représente l'ID de l'utilisateur associé au projet.
+    private byte[] video;  
+    private Long userId;   
     private String technologies;
-    private String category; // Category of the project
+    private String category; 
 
 }
