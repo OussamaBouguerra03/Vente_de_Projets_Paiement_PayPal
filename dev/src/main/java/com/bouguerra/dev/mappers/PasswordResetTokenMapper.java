@@ -8,20 +8,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class PasswordResetTokenMapper {
 
-    // Convertir de l'entité à DTO
-    public PasswordResetTokenDTO toDTO(PasswordResetToken token) {
+     public PasswordResetTokenDTO toDTO(PasswordResetToken token) {
         PasswordResetTokenDTO dto = new PasswordResetTokenDTO();
         dto.setToken(token.getToken());
-        dto.setUserEmail(token.getUser().getEmail()); // Utilisation de l'email de l'utilisateur
+        dto.setUserEmail(token.getUser().getEmail());  
         dto.setExpiryDate(token.getExpiryDate());
         return dto;
     }
 
-    // Convertir de DTO à l'entité
-    public PasswordResetToken toEntity(PasswordResetTokenDTO dto, User user) {
+     public PasswordResetToken toEntity(PasswordResetTokenDTO dto, User user) {
         PasswordResetToken token = new PasswordResetToken();
         token.setToken(dto.getToken());
-        token.setUser(user); // Assurez-vous de passer l'entité utilisateur
+        token.setUser(user);  
         token.setExpiryDate(dto.getExpiryDate());
         return token;
     }
