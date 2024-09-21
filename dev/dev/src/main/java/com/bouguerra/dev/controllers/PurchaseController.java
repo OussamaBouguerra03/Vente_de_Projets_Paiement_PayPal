@@ -46,7 +46,7 @@ public class PurchaseController {
         logger.info("Request to get purchases for user started.");
     
         try {
-            String username = authentication.getName(); // Obtenir le nom d'utilisateur
+            String username = authentication.getName();  
             logger.info("Authenticated user: {}", username);
     
             User user = userService.findByUsername(username); 
@@ -56,7 +56,7 @@ public class PurchaseController {
             }
     
             List<PurchaseDTO> purchases = purchaseService.getUserPurchases(user.getId());
-            logger.info("Purchases retrieved: {}", purchases); // Affiche les achats récupérés
+            logger.info("Purchases retrieved: {}", purchases);  
     
             return ResponseEntity.ok(purchases);
         } catch (Exception e) {
