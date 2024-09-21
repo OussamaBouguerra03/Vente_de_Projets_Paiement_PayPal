@@ -54,7 +54,7 @@ public ResponseEntity<byte[]> getUserImage(@PathVariable Long id) {
         headers.setContentType(MediaType.IMAGE_JPEG);
         return new ResponseEntity<>(imageBytes, headers, HttpStatus.OK);
     } catch (Exception e) {
-        e.printStackTrace(); // Ajoutez cette ligne pour voir l'exception exacte dans les logs
+        e.printStackTrace();  
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
