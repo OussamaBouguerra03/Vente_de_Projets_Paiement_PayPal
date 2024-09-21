@@ -33,7 +33,7 @@ public class User implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> authorities = new HashSet<>();
-        authorities.add(role); // Assurez-vous que Role implémente GrantedAuthority
+        authorities.add(role);  
         return authorities;
     }
 
