@@ -19,8 +19,7 @@ public class ProjectMapper {
         );
     }
 
-    // Convertir ProjectDTO en Project
-    public static Project toEntity(ProjectDTO projectDTO, User user) {
+     public static Project toEntity(ProjectDTO projectDTO, User user) {
         return new Project(
                 projectDTO.getId(),
                 projectDTO.getName(),
