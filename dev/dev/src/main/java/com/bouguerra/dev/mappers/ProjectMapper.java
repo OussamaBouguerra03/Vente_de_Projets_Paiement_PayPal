@@ -15,8 +15,8 @@ public class ProjectMapper {
                 project.getPrice(),
                 project.getVideo(),
                 project.getUser().getId(),
-                project.getTechnologies(), // Ajouter les technologies
-                project.getCategory() // Ajouter la catégorie
+                project.getTechnologies(),  
+                project.getCategory()  
         );
     }
 
@@ -27,8 +27,8 @@ public class ProjectMapper {
                 projectDTO.getName(),
                 projectDTO.getDescription(),
                 projectDTO.getPrice(),
-                projectDTO.getTechnologies(), // Ajouter les technologies
-                projectDTO.getCategory(), // Ajouter la catégorie
+                projectDTO.getTechnologies(), 
+                projectDTO.getCategory(),  
                 projectDTO.getVideo(),
                 user
         );
